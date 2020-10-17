@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Post Policy for LTE feature
+$Header:  $
+-->
+<policy name        = "LTE FEATURE RESTRICTION"
+        changelist  = "$Change: 19373687 $"
+        policy_ver  = "1103.2.6"
+>
+
+  <initial>
+    <plmn_list name="dss_plmns" ns="global">
+      228-01 505-01 505-11 505-39 505-71 505-72 204-04 466-01 466-02 466-05 466-92 466-97 525-01
+    </plmn_list>
+  </initial>
+
+  <lte_feature name="NR_DSS">
+    <all_of>
+      <boolean_test name="carrier:dss_is_enabled" />
+      <serving_plmn_in list="dss_plmns" />
+    </all_of>
+  </lte_feature>
+
+</policy>
+
